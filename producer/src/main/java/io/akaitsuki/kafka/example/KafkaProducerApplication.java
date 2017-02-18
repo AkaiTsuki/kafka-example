@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Created by Jiachi on 2/18/2017.
  */
 @SpringBootApplication
-public class Application {
+public class KafkaProducerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(KafkaProducerApplication.class, args);
     }
 }

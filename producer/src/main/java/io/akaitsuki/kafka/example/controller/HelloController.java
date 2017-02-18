@@ -20,7 +20,7 @@ import java.util.UUID;
 public class HelloController {
 
     @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaTemplate<String, Object> kafkaTemplate;
 
     @RequestMapping("/hello/{name}")
     public HelloEvent hello(@PathVariable("name") String name){
@@ -28,8 +28,8 @@ public class HelloController {
         event.setId(UUID.randomUUID().toString());
         event.setMsg("Hello, "+ name);
 
-        ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send("test", event.getMsg());
-        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+        ListenableFuture<SendResult<String, Object>> future = kafkaTemplate.send("test", event);
+        future.addCallback(new ListenableFutureCallback<SendResult<String, Object>>() {
 
             @Override
             public void onFailure(Throwable throwable) {
@@ -37,8 +37,8 @@ public class HelloController {
             }
 
             @Override
-            public void onSuccess(SendResult<String, String> stringStringSendResult) {
-                System.out.println("event send success");
+            public void onSuccess(SendResult<String, Object> result) {
+                System.out.println("event send success:" + result);
             }
         });
 
