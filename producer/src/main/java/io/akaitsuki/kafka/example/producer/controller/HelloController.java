@@ -1,6 +1,6 @@
-package io.akaitsuki.kafka.example.controller;
+package io.akaitsuki.kafka.example.producer.controller;
 
-import io.akaitsuki.kafka.example.event.HelloEvent;
+import io.akaitsuki.kafka.example.producer.event.HelloEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;

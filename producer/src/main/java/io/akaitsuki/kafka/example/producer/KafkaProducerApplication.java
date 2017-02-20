@@ -1,4 +1,4 @@
-package io.akaitsuki.kafka.example;
+package io.akaitsuki.kafka.example.producer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package io.akaitsuki.kafka.example.config;
+package io.akaitsuki.kafka.example.consumer.config;
 
 import io.akaitsuki.kafka.example.consumer.TestConsumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -20,7 +20,7 @@ import java.util.Map;
  */
 @Configuration
 @EnableKafka
-public class KafkaConsumerConfig {
+public class KafkaTestConsumerConfig {
     @Bean
     KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, String>> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();

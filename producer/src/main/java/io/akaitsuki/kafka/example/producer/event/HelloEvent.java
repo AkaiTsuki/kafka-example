@@ -1,4 +1,4 @@
-package io.akaitsuki.kafka.example.event;
+package io.akaitsuki.kafka.example.producer.event;
 
 /**
  * Created by Jiachi on 2/18/2017.
