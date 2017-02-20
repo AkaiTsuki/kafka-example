@@ -27,6 +27,7 @@ public class HelloController {
         HelloEvent event = new HelloEvent();
         event.setId(UUID.randomUUID().toString());
         event.setMsg("Hello, "+ name);
+        event.setAttempts(0);
 
         ListenableFuture<SendResult<String, Object>> future = kafkaTemplate.send("test", event);
         future.addCallback(new ListenableFutureCallback<SendResult<String, Object>>() {

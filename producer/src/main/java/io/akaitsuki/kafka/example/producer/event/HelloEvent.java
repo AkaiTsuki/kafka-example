@@ -6,6 +6,7 @@ package io.akaitsuki.kafka.example.producer.event;
 public class HelloEvent {
     private String id;
     private String msg;
+    private int attempts;
 
     public String getId() {
         return id;
@@ -23,11 +24,20 @@ public class HelloEvent {
         this.msg = msg;
     }
 
+    public int getAttempts() {
+        return attempts;
+    }
+
+    public void setAttempts(int attempts) {
+        this.attempts = attempts;
+    }
+
     @Override
     public String toString() {
         return "HelloEvent{" +
                 "id='" + id + '\'' +
                 ", msg='" + msg + '\'' +
+                ", attempts=" + attempts +
                 '}';
     }
 }

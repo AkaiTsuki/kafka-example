@@ -6,6 +6,7 @@ package io.akaitsuki.kafka.example.consumer.event;
 public class HelloRequestEvent {
     private String id;
     private String msg;
+    private int attempts;
 
     public String getId() {
         return id;
@@ -23,11 +24,20 @@ public class HelloRequestEvent {
         this.msg = msg;
     }
 
+    public int getAttempts() {
+        return attempts;
+    }
+
+    public void setAttempts(int attempts) {
+        this.attempts = attempts;
+    }
+
     @Override
     public String toString() {
         return "HelloRequestEvent{" +
                 "id='" + id + '\'' +
                 ", msg='" + msg + '\'' +
+                ", attempts=" + attempts +
                 '}';
     }
 }

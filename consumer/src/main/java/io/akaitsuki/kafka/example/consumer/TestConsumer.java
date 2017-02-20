@@ -35,6 +35,7 @@ public class TestConsumer {
 
         if(requestEvent.getMsg().endsWith("-fail")){
             event.setResponseMsg("Fail");
+            event.setRequestEvent(requestEvent);
         } else {
             event.setResponseMsg("Done");
         }
