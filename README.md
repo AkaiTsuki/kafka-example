@@ -32,4 +32,10 @@ http://localhost:8080/kafka/hello/your_name
 // Verify event consumed
 go to consumer shell, you should see event print out, e.g:
 ConsumerRecord(topic = test, partition = 0, offset = 4, CreateTime = 1487443798782, checksum = 2776761203, serialized key size = -1, serialized value size = 15, key = null, value = Hello, your_name)
+
+// Trigger event retry by append -fail suffix to your name
+use browser access following url:
+http://localhost:8080/kafka/hello/your_name-fail
+
+// You should see a list of same events with different attempt value
 ```
