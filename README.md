@@ -9,7 +9,6 @@ bin/kafka-server-start.sh config/server.properties
 
 // Create test topic - no replication, one partition
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
-bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test-request
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test-response
 
 // Verify topic
