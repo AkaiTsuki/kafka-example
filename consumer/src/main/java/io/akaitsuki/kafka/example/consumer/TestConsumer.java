@@ -32,7 +32,13 @@ public class TestConsumer {
         HelloResponseEvent event = new HelloResponseEvent();
         event.setRequestId(requestEvent.getId());
         event.setId(UUID.randomUUID().toString());
-        event.setResponseMsg("Done");
+
+        if(requestEvent.getMsg().endsWith("-fail")){
+            event.setResponseMsg("Fail");
+        } else {
+            event.setResponseMsg("Done");
+        }
+
 
         ListenableFuture<SendResult<String, Object>> future = kafkaTemplate.send("test-response", event);
         future.addCallback(new ListenableFutureCallback<SendResult<String, Object>>() {
