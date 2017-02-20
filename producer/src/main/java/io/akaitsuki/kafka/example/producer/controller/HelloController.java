@@ -1,6 +1,6 @@
 package io.akaitsuki.kafka.example.producer.controller;
 
-import io.akaitsuki.kafka.example.producer.event.HelloEvent;
+import io.akaitsuki.kafka.example.common.event.HelloRequestEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
@@ -23,8 +23,8 @@ public class HelloController {
     private KafkaTemplate<String, Object> kafkaTemplate;
 
     @RequestMapping("/hello/{name}")
-    public HelloEvent hello(@PathVariable("name") String name){
-        HelloEvent event = new HelloEvent();
+    public HelloRequestEvent hello(@PathVariable("name") String name){
+        HelloRequestEvent event = new HelloRequestEvent();
         event.setId(UUID.randomUUID().toString());
         event.setMsg("Hello, "+ name);
         event.setAttempts(0);

@@ -1,4 +1,4 @@
-package io.akaitsuki.kafka.example.producer.event;
+package io.akaitsuki.kafka.example.common.event;
 
 /**
  * Created by jliu on 2/20/2017.
@@ -7,7 +7,7 @@ public class HelloResponseEvent {
     private String id;
     private String requestId;
     private String responseMsg;
-    private HelloEvent requestEvent;
+    private HelloRequestEvent requestEvent;
 
     public String getId() {
         return id;
@@ -33,11 +33,11 @@ public class HelloResponseEvent {
         this.responseMsg = responseMsg;
     }
 
-    public HelloEvent getRequestEvent() {
+    public HelloRequestEvent getRequestEvent() {
         return requestEvent;
     }
 
-    public void setRequestEvent(HelloEvent requestEvent) {
+    public void setRequestEvent(HelloRequestEvent requestEvent) {
         this.requestEvent = requestEvent;
     }
 

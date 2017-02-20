@@ -1,4 +1,4 @@
-package io.akaitsuki.kafka.example.consumer.event;
+package io.akaitsuki.kafka.example.common.event;
 
 /**
  * Created by Jiachi on 2/18/2017.

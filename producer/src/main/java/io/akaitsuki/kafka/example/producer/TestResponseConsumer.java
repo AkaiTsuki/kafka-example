@@ -1,7 +1,7 @@
 package io.akaitsuki.kafka.example.producer;
 
-import io.akaitsuki.kafka.example.producer.event.HelloEvent;
-import io.akaitsuki.kafka.example.producer.event.HelloResponseEvent;
+import io.akaitsuki.kafka.example.common.event.HelloRequestEvent;
+import io.akaitsuki.kafka.example.common.event.HelloResponseEvent;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -33,7 +33,7 @@ public class TestResponseConsumer {
         }
     }
 
-    private void retry(HelloEvent event) {
+    private void retry(HelloRequestEvent event) {
         event.setAttempts(event.getAttempts() + 1);
         ListenableFuture<SendResult<String, Object>> future = kafkaTemplate.send("test", event);
         future.addCallback(new ListenableFutureCallback<SendResult<String, Object>>() {

@@ -1,6 +1,7 @@
 package io.akaitsuki.kafka.example.producer.config;
 
-import io.akaitsuki.kafka.example.producer.event.HelloResponseEvent;
+
+import io.akaitsuki.kafka.example.common.event.HelloResponseEvent;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;

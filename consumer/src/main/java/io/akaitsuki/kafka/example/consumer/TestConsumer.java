@@ -1,7 +1,7 @@
 package io.akaitsuki.kafka.example.consumer;
 
-import io.akaitsuki.kafka.example.consumer.event.HelloRequestEvent;
-import io.akaitsuki.kafka.example.consumer.event.HelloResponseEvent;
+import io.akaitsuki.kafka.example.common.event.HelloRequestEvent;
+import io.akaitsuki.kafka.example.common.event.HelloResponseEvent;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
