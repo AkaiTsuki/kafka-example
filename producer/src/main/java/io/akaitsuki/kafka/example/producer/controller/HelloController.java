@@ -38,7 +38,7 @@ public class HelloController {
 
             @Override
             public void onSuccess(SendResult<String, Object> result) {
-                System.out.println("event send success:" + result);
+                System.out.println("event send success:" + result.getProducerRecord().value());
             }
         });
 
