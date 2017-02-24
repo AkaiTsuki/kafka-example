@@ -44,11 +44,19 @@ http://localhost:8080/kafka/hello/your_name-fail
 // You should see a list of same events with different attempt value
 
 // trigger elastic search index event:
-POST http://localhost:8008/customer
+POST http://localhost:8080/customer
 {
 	"firstName": "Testabc",
 	"lastName": "TestLastName"
 }
 
 it will create index=bookstore type=customer in elasticsearch and you should be able to view the document via kibana
+
+// trigger elastic search index update
+PUT http://localhost:8080/customer
+{
+	"firstName": "Testabc",
+	"lastName": "TestLastName",
+	"customerId": "existing_customer_mongo_id"
+}
 ```
