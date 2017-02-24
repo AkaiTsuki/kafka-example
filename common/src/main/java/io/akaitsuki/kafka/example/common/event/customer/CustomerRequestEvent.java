@@ -8,7 +8,24 @@ import io.akaitsuki.kafka.example.common.event.BaseEvent;
 public class CustomerRequestEvent extends BaseEvent {
     private String firstName;
     private String lastName;
+    private String customerId;
     private CustomerEventType type;
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public CustomerEventType getType() {
+        return type;
+    }
+
+    public void setType(CustomerEventType type) {
+        this.type = type;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -29,10 +46,10 @@ public class CustomerRequestEvent extends BaseEvent {
     @Override
     public String toString() {
         return "CustomerRequestEvent{" +
-                "id" + id +  '\'' +
-                "attempts" + attempts +  '\'' +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", customerId='" + customerId + '\'' +
+                ", type=" + type +
                 '}';
     }
 }

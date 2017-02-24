@@ -1,17 +1,16 @@
-package io.akaitsuki.kafka.example.consumer.domain;
+package io.akaitsuki.kafka.example.producer.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
- * Created by jliu on 2/23/2017.
+ * Created by jliu on 2/21/2017.
  */
+@Document(collection = "customer")
 public class Customer {
-
     @Id
     private String id;
-
     private String firstName;
-
     private String lastName;
 
     public String getId() {
@@ -36,14 +35,5 @@ public class Customer {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id='" + id + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
     }
 }

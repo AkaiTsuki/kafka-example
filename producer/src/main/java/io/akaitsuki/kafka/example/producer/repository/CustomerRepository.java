@@ -1,6 +1,6 @@
-package io.akaitsuki.kafka.example.consumer.repository;
+package io.akaitsuki.kafka.example.producer.repository;
 
-import io.akaitsuki.kafka.example.consumer.domain.Customer;
+import io.akaitsuki.kafka.example.producer.domain.Customer;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

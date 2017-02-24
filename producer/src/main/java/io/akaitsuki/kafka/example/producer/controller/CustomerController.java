@@ -1,6 +1,8 @@
 package io.akaitsuki.kafka.example.producer.controller;
 
 import io.akaitsuki.kafka.example.common.event.customer.CustomerRequestEvent;
+import io.akaitsuki.kafka.example.producer.domain.Customer;
+import io.akaitsuki.kafka.example.producer.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
@@ -21,6 +23,9 @@ public class CustomerController {
     @Autowired
     private KafkaTemplate<String, Object> kafkaTemplate;
 
+    @Autowired
+    private CustomerRepository customerRepository;
+
     @PostMapping("")
     public CustomerRequestEvent enroll(@RequestBody CustomerRequestEvent event){
 
@@ -30,6 +35,13 @@ public class CustomerController {
 
         event.setAttempts(0);
         event.setId(UUID.randomUUID().toString());
+
+        Customer customer = new Customer();
+        customer.setLastName(event.getLastName());
+        customer.setFirstName(event.getFirstName());
+        customer = customerRepository.save(customer);
+
+        event.setCustomerId(customer.getId());
 
         ListenableFuture<SendResult<String, Object>> future = kafkaTemplate.send("customer", event);
         future.addCallback(new ListenableFutureCallback<SendResult<String, Object>>() {
