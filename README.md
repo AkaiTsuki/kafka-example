@@ -7,8 +7,12 @@ Spring Boot Kafka Example
 bin/zookeeper-server-start.sh config/zookeeper.properties
 bin/kafka-server-start.sh config/server.properties
 
+// start elastic search
+elasticsearch_home/bin/elasticsearch
+
 // Create test topic - no replication, one partition
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic customer
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test-response
 
 // Verify topic
@@ -38,4 +42,13 @@ use browser access following url:
 http://localhost:8080/kafka/hello/your_name-fail
 
 // You should see a list of same events with different attempt value
+
+// trigger elastic search index event:
+POST http://localhost:8008/customer
+{
+	"firstName": "Testabc",
+	"lastName": "TestLastName"
+}
+
+it will create index=bookstore type=customer in elasticsearch and you should be able to view the document via kibana
 ```
